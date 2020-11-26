@@ -12,16 +12,8 @@ class LoginTest extends TestCase
 
     use RefreshDatabase;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
     public function testUserCanLogin()
     {
-        $this->withoutExceptionHandling();
-
-
         $password = '123';
         $user = User::factory()->create(['password' => Hash::make($password)]);
 
