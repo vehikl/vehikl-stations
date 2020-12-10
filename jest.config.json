@@ -10,3 +10,7 @@
         ".*\\.(js|ts)$": "babel-jest"
     }
 }
+
+.DS_Store  <- meta folder macOS
+.idea <- intelliJ IDEs
+.vs_code <- meta for vs code
