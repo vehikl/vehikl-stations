@@ -8,7 +8,7 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "test": "jest"
+        "test": "jest --config=jest.config.json"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",
@@ -36,17 +36,5 @@
         "vue-jest": "^3.0.7",
         "vue-property-decorator": "^9.1.2",
         "vue-template-compiler": "^2.6.10"
-    },
-    "jest": {
-        "moduleFileExtensions": [
-            "js",
-            "ts",
-            "json",
-            "vue"
-        ],
-        "transform": {
-            ".*\\.(vue)$": "vue-jest",
-            ".*\\.(js|ts)$": "babel-jest"
-        }
     }
 }
