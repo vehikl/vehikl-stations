@@ -14,10 +14,12 @@
     </div>
 </template>
 
-<script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator';
+
+@Component
+export default class YourComponent extends Vue {
+    @Prop(Number) readonly propA: number | undefined;
+    @Prop({ default: 'default value' }) readonly propB!: string;
+}
 </script>
