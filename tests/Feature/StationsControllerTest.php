@@ -2,16 +2,20 @@
 
 namespace Tests\Feature;
 
+use App\Models\Station;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class StationsControllerTest extends TestCase
 {
-    public function testItHasARouteToGetStations()
+    use RefreshDatabase;
+
+    public function testItProvidesAListOfAllExistingStations()
     {
-        $this->withoutExceptionHandling();
+        Station::factory()->count(10)->create();
+
         $this->get(route('stations.index'))
-            ->assertSuccessful();
+            ->assertSuccessful()
+            ->assertJson(Station::all()->toArray());
     }
 }
