@@ -21,4 +21,12 @@ class StationsControllerTest extends TestCase
             ->assertSuccessful()
             ->assertJson(Station::all()->toArray());
     }
+
+    public function testGuestsCannotGetAListOfAllExistingStations()
+    {
+        Station::factory()->count(10)->create();
+
+        $this->getJson(route('stations.index'))
+            ->assertUnauthorized();
+    }
 }

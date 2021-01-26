@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\StationsController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +24,6 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/stations', [StationsController::class, 'index'])->name('stations.index');
+Route::get('/stations', [StationsController::class, 'index'])
+    ->name('stations.index')
+    ->middleware('auth');
